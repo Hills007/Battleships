@@ -18,10 +18,10 @@ class Board:
         self.guesses.append((x, y))
         self.board[x][y] = "X"
         if (x, y) in self.ships:
-        self.board[x][y] = "*"
-        return "Hit"
+            self.board[x][y] = "*"
+            return "Hit"
         else:
-        return "Miss"
+            return "Miss"
 
     def add_ship(self, x, y):
         if len(self.ships) >= self.num_ships:
@@ -29,7 +29,7 @@ class Board:
         else:
             self.ships.append((x, y))
             if self.type == "player":
-            self.board[x][y] = "@"
+                self.board[x][y] = "@"
 
 
 def random_point(size):
@@ -40,14 +40,14 @@ def valid_coordinates(x, y, board):
 
 def populate_board(board):
     for _ in range(board.num_ships):
-    x = random_point(board.size)
-    y = random_point(board.size)
-    while (x, y) in board.ships:
         x = random_point(board.size)
         y = random_point(board.size)
-    board.add_ship(x, y)
+        while (x, y) in board.ships:
+            x = random_point(board.size)
+            y = random_point(board.size)
+        board.add_ship(x, y)
 
-define make_guess(board):
+def make_guess(board):
     x = int(input("Enter row number to guess: "))
     y = int(input("Enter column number to guess: "))
     if not valid_coordinates(x, y, board):
@@ -56,3 +56,4 @@ define make_guess(board):
     result = board.guess(x, y)
     print(result)
     board.display()
+
