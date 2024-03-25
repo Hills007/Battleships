@@ -47,4 +47,4 @@ def populate_board(board):
         y = random_point(board.size)
     board.add_ship(x, y)
 
-
+define make_guess(board):
