@@ -56,4 +56,6 @@ def make_guess(board):
     result = board.guess(x, y)
     print(result)
     board.display()
+    
+def play_game(computer_board, player_board):
 
