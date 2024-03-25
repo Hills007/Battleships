@@ -64,3 +64,14 @@ def play_game(computer_board, player_board):
         if len(computer_board.ships) == 0:
             print("Player wins!")
             scores["player"] += 1
+            break
+    # Computer's turn
+    print("Computer's turn:")
+    x = random_point(player_board.size)
+    y = random_point(player_board.size)
+    result = player_board.guess(x, y)
+    print(f"Computer guesses: ({x}, {y}) - {result}")
+    if len(player_board.ships) == 0:
+        print("Computer wins!")
+        scores["computer"] += 1
+        break
