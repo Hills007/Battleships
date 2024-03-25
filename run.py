@@ -33,4 +33,8 @@ class Board:
 
 
 def random_point(size):
-    return randint(0, size-1)            
+    return randint(0, size-1)  
+
+def valid_coordinates(x, y, board):
+    
+
