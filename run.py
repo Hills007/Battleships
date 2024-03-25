@@ -56,6 +56,11 @@ def make_guess(board):
     result = board.guess(x, y)
     print(result)
     board.display()
-    
-def play_game(computer_board, player_board):
 
+def play_game(computer_board, player_board):
+    while len(computer_board.ships) > 0 and len(player_board.ships) > 0:
+        print("Player's turn:")
+        make_guess(computer_board)
+        if len(computer_board.ships) == 0:
+            print("Player wins!")
+            scores["player"] += 1
