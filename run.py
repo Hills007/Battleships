@@ -75,3 +75,8 @@ def play_game(computer_board, player_board):
         print("Computer wins!")
         scores["computer"] += 1
         break
+def new_game():
+    size = 5
+    num_ships = 4
+    scores["player"] = 0
+    scores["computer"] = 0   
