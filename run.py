@@ -58,23 +58,25 @@ def make_guess(board):
     board.display()
 
 def play_game(computer_board, player_board):
-    while len(computer_board.ships) > 0 and len(player_board.ships) > 0:
+    player_ships_hit = 0
+    computer_ships_hit = 0
+    while player_ships_hit < computer_board.num_ships and computer_ships_hit < player_board.num_ships:
         print("Player's turn:")
-        make_guess(computer_board)
+        result = make_guess(computer_board)
         if len(computer_board.ships) == 0:
             print("Player wins!")
             scores["player"] += 1
             break
     # Computer's turn
-    print("Computer's turn:")
-    x = random_point(player_board.size)
-    y = random_point(player_board.size)
-    result = player_board.guess(x, y)
-    print(f"Computer guesses: ({x}, {y}) - {result}")
-    if len(player_board.ships) == 0:
-        print("Computer wins!")
-        scores["computer"] += 1
-        break
+        print("Computer's turn:")
+        x = random_point(player_board.size)
+        y = random_point(player_board.size)
+        result = player_board.guess(x, y)
+        print(f"Computer guesses: ({x}, {y}) - {result}")
+        if len(player_board.ships) == 0:
+            print("Computer wins!")
+            scores["computer"] += 1
+            break
 def new_game():
     size = 5
     num_ships = 4
