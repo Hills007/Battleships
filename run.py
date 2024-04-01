@@ -56,6 +56,7 @@ def make_guess(board):
     result = board.guess(x, y)
     print(result)
     board.display()
+    return result
 
 def play_game(computer_board, player_board):
     player_ships_hit = 0
@@ -63,7 +64,9 @@ def play_game(computer_board, player_board):
     while player_ships_hit < computer_board.num_ships and computer_ships_hit < player_board.num_ships:
         print("Player's turn:")
         result = make_guess(computer_board)
-        if len(computer_board.ships) == 0:
+        if result == "Hit":
+            player_ships_hit += 1
+            if player_ships_hit == computer_board.num_ships:
             print("Player wins!")
             scores["player"] += 1
             break
@@ -73,7 +76,9 @@ def play_game(computer_board, player_board):
         y = random_point(player_board.size)
         result = player_board.guess(x, y)
         print(f"Computer guesses: ({x}, {y}) - {result}")
-        if len(player_board.ships) == 0:
+        if result == "Hit":
+            computer_ships_hit += 1
+            if computer_ships_hit == player_board.num_ships:
             print("Computer wins!")
             scores["computer"] += 1
             break
