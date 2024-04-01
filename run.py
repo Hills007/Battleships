@@ -67,9 +67,9 @@ def play_game(computer_board, player_board):
         if result == "Hit":
             player_ships_hit += 1
             if player_ships_hit == computer_board.num_ships:
-            print("Player wins!")
-            scores["player"] += 1
-            break
+                print("Player wins!")
+                scores["player"] += 1
+                break
     # Computer's turn
         print("Computer's turn:")
         x = random_point(player_board.size)
@@ -79,9 +79,9 @@ def play_game(computer_board, player_board):
         if result == "Hit":
             computer_ships_hit += 1
             if computer_ships_hit == player_board.num_ships:
-            print("Computer wins!")
-            scores["computer"] += 1
-            break
+                print("Computer wins!")
+                scores["computer"] += 1
+                break
 def new_game():
     size = 5
     num_ships = 4
