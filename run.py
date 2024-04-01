@@ -82,6 +82,9 @@ def play_game(computer_board, player_board):
                 print("Computer wins!")
                 scores["computer"] += 1
                 break
+        # Display computer's guess on player's board
+        player_board.display()
+        
 def new_game():
     size = 5
     num_ships = 4
