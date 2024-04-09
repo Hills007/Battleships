@@ -7,7 +7,7 @@ class Board:
         self.num_ships = num_ships
         self.name = name
         self.type = board_type
-        self.guesses = []
+        self.guesses = set()
         self.ships = []
 
     def display(self):
@@ -99,6 +99,8 @@ def play_game(computer_board, player_board):
                 break
         # Display computer's guess on player's board
         player_board.display()
+        print("Computer's board:")
+        computer_board.display()
         # Diplay score after each round
         display_score()
 def new_game():
