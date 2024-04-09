@@ -15,7 +15,12 @@ class Board:
             print(" ".join(row)) 
 
     def guess(self, x, y):
-        self.guesses.append((x, y))
+        if ( x, y) in self.guesses:
+            print("You cannot use the same coordinate twice.")
+            return "Invalid"
+
+        else:    
+        self.guesses.add((x, y))
         self.board[x][y] = "X"
         if (x, y) in self.ships:
             self.board[x][y] = "*"
