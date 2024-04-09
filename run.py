@@ -63,6 +63,10 @@ def make_guess(board):
     board.display()
     return result
 
+def display_score():
+    print("Current Score:")
+    print(f"Player: {scores['player']} | Computer: {scores['computer']}")
+    
 def play_game(computer_board, player_board):
     player_ships_hit = 0
     computer_ships_hit = 0
@@ -89,7 +93,8 @@ def play_game(computer_board, player_board):
                 break
         # Display computer's guess on player's board
         player_board.display()
-        
+        # Diplay score after each round
+        display_score()
 def new_game():
     size = 5
     num_ships = 4
@@ -114,7 +119,7 @@ def new_game():
         # Display player's ships
     player_board.display_ships()  
     player_board.display()
-    
+
     play_game(computer_board, player_board)
 
 new_game()
