@@ -58,19 +58,12 @@ def populate_board(board):
         board.add_ship(x, y)
 
 def make_guess(board):
-    while True:
-        try:
-            x = int(input("Enter row number to guess: "))
-            y = int(input("Enter column number to guess: "))
-            if not valid_coordinates(x, y, board):
-                print("Invalid coordinates. Please try again.")
-                continue
-            if (x, y) in board.guesses:
-                print("You cannot use the same coordinates twice.")
-                continue
-            break
-        except ValueError:
-            print("You must enter a number.")        
+
+    x = int(input("Enter row number to guess: "))
+    y = int(input("Enter column number to guess: "))
+    if not valid_coordinates(x, y, board):
+        print("Invalid coordinates. Please try again.")
+        return make_guess(board)
     result = board.guess(x, y)
     print(result)
     board.display()
