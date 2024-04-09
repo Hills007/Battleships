@@ -36,7 +36,7 @@ class Board:
         for ship in self.ships:
             x, y = ship
             self.board[x][y] = "@"
-            
+
 def random_point(size):
     return randint(0, size-1)  
 
@@ -109,6 +109,12 @@ def new_game():
 
     populate_board(computer_board)
 
+            # Populate player's board
+    populate_board(player_board)
+        # Display player's ships
+    player_board.display_ships()  
+    player_board.display()
+    
     play_game(computer_board, player_board)
 
 new_game()
