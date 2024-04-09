@@ -75,9 +75,9 @@ def play_game(computer_board, player_board):
         result = make_guess(computer_board)
         if result == "Hit":
             player_ships_hit += 1
+            scores["player"] += 1
             if player_ships_hit == computer_board.num_ships:
                 print("Player wins!")
-                scores["player"] += 1
                 break
     # Computer's turn
         print("Computer's turn:")
@@ -87,9 +87,9 @@ def play_game(computer_board, player_board):
         print(f"Computer guesses: ({x}, {y}) - {result}")
         if result == "Hit":
             computer_ships_hit += 1
+            scores["computer"] += 1
             if computer_ships_hit == player_board.num_ships:
                 print("Computer wins!")
-                scores["computer"] += 1
                 break
         # Display computer's guess on player's board
         player_board.display()
@@ -121,7 +121,7 @@ def new_game():
     player_board.display()
 
     play_game(computer_board, player_board)
-    
+
     #Add a Restart funtion after game ends
     restart = input("Do you want to play again? (yes/no): ")
     if restart.lower() == "yes":
